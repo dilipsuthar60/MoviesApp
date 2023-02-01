@@ -1,6 +1,5 @@
 import React from 'react'
-import image from '../download.png'
-import { Link} from 'react-router-dom' 
+import image from '../download.png';
 const Navbar = () => {
   return (
     <div className='flex border items-center py-4 pl-5 space-x-10'>

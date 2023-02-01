@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Circles} from  'react-loader-spinner'
 const Banner = () => {
 
    const [banner, setbanner] = useState("");
@@ -16,7 +17,17 @@ const Banner = () => {
   return (
     <>
     {
-      (banner==="")?<h1 className='border'>Loading...</h1>:
+      (banner==="")?
+      <div className='flex justify-center align-middle m-8'><Circles
+      height="80"
+      width="80"
+      color="gray"
+      ariaLabel="circles-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    /> </div>
+    :
 
       <div className='bg-banner h-[60vh] md:h-[100vh] bg-center bg-cover flex items-end' 
       style={{
