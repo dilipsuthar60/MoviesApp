@@ -32,7 +32,7 @@ const Movies = () =>
       <div className='flex flex-wrap justify-center'>
         {
           movies.length===0?<h1>Loading our data ...</h1>:
-          movies.map((element,index)=>{
+          movies.map((element)=>{
             return (
               <div key={element.id} className="flex items-end border bg-center 
               bg-cover w-[160px] h-[30vh] md:h-[40vh] 
