@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Pagination from './Pagination';
+import Pagination from './Favourites';
 const Movies = () => {
   const [movies, setmovies] = useState([]);
   const [page, setpage] = useState(1);
   const [hovered, sethovered] = useState("")
-  const [favourite,setfavourite]=useState([]);
+  const [favourite, setfavourite] = useState([]);
   const nextpage = () => {
     setpage(page + 1);
   }
@@ -15,18 +15,18 @@ const Movies = () => {
       setpage(page - 1);
     }
   }
-  const showemoji=(id)=>{
+  const showemoji = (id) => {
     sethovered(id);
   }
-  const removeemoji=()=>{
+  const removeemoji = () => {
     sethovered("");
   }
-  const addfav=(id)=>{
-    let newfav=[...favourite,id];
+  const addfav = (id) => {
+    let newfav = [...favourite, id];
     setfavourite(newfav);
   }
-  const removefav=(id)=>{
-    let newfav=favourite.filter((element)=>id!==element);
+  const removefav = (id) => {
+    let newfav = favourite.filter((element) => id !== element);
     setfavourite(newfav);
   }
 
@@ -48,9 +48,9 @@ const Movies = () => {
           movies.length === 0 ? <h1>Loading our data ...</h1> :
             movies.map((element) => {
               return (
-                <div onMouseOver={()=>showemoji(element.id)} 
-                onMouseLeave={()=>removeemoji()}
-                key={element.id} className="flex items-end border bg-center 
+                <div onMouseOver={() => showemoji(element.id)}
+                  onMouseLeave={() => removeemoji()}
+                  key={element.id} className="flex items-end border bg-center 
               bg-cover w-[160px] h-[30vh] md:h-[40vh] 
               md:w-[190px] m-4 rounded-xl hover:scale-110 duration-300 relative" style={{
                     backgroundImage:
@@ -60,17 +60,17 @@ const Movies = () => {
 
 
                   {
-                  favourite.includes(element.id)===false?
-                    <div onClick={()=>addfav(element.id)} className='pointer absolute top-2 right-2 bg-gray-900 p-1.5 rounded-xl text-2xl
-                    ' style={{display:(hovered===element.id)?"block":"none"}}> 
-                      😍
-                    </div>
-                    : <div onClick={()=>removefav(element.id)} className='pointer absolute top-2 right-2 bg-gray-900 p-1.5 rounded-xl text-2xl
-                    ' style={{display:(hovered===element.id)?"block":"none"}}> 
-                      ❌
-                    </div>
+                    favourite.includes(element.id) === false ?
+                      <div onClick={() => addfav(element.id)} className='pointer absolute top-2 right-2 bg-gray-900 p-1.5 rounded-xl text-2xl
+                    ' style={{ display: (hovered === element.id) ? "block" : "none" }}>
+                        😍
+                      </div>
+                      : <div onClick={() => removefav(element.id)} className='pointer absolute top-2 right-2 bg-gray-900 p-1.5 rounded-xl text-2xl
+                    ' style={{ display: (hovered === element.id) ? "block" : "none" }}>
+                        ❌
+                      </div>
 
-                   }
+                  }
 
 
 
