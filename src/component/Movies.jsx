@@ -41,7 +41,7 @@ const Movies = () =>
                     `url(
                     https://image.tmdb.org/t/p/original/t/p/w500/${element.poster_path})`
             }}> 
-              <div className=' w-full font-bold text-white
+              <div className='w-full font-bold text-white
                bg-gray-400 p-2 bg-opacity-60
                 text-center rounded-b-xl'>{element.title||element.name}</div>
               </div> 
